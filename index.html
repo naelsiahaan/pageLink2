@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Main Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .countdown {
+            text-align: center;
+        }
+        .countdown h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .countdown p {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        #redirectButton {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Mulai dalam keadaan tersembunyi */
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Harap Tunggu...</h1>
+        <p id="timer">5</p> <!-- Timer mulai dari angka ini -->
+        <button id="redirectButton" onclick="redirect()">Klik di sini untuk Lanjutkan</button>
+    </div>
+
+    <script>
+        // Set durasi waktu dalam detik
+        let countdownTime = 5; // Misalnya, 5 detik
+
+        // Ambil elemen tempat countdown dan tombol redirect
+        const timerDisplay = document.getElementById('timer');
+        const redirectButton = document.getElementById('redirectButton');
+
+        // Fungsi update countdown
+        const updateCountdown = () => {
+            if (countdownTime <= 0) {
+                // Tampilkan tombol setelah waktu habis
+                redirectButton.style.display = "inline-block";
+                timerDisplay.style.display = "none"; // Sembunyikan timer
+            } else {
+                // Tampilkan sisa waktu
+                timerDisplay.textContent = countdownTime;
+                countdownTime--;
+            }
+        };
+
+        // Fungsi untuk redirect saat tombol diklik
+        const redirect = () => {
+            window.location.href = "https://t.ly/kolamhadiah"; // Ganti dengan URL halaman utama Anda
+        };
+
+        // Update setiap detik
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
